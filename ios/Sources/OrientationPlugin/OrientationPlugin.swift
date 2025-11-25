@@ -10,14 +10,34 @@ public class OrientationPlugin: CAPPlugin, CAPBridgedPlugin {
     public let identifier = "OrientationPlugin"
     public let jsName = "Orientation"
     public let pluginMethods: [CAPPluginMethod] = [
-        CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "lock", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "unlock", returnType: CAPPluginReturnPromise)
     ]
     private let implementation = Orientation()
+    let isOnlyPortrait: Bool = false
+    static let shared = OrientationPlugin() // Singleton instance
 
     @objc func echo(_ call: CAPPluginCall) {
         let value = call.getString("value") ?? ""
+       call.resolve([
+           "value": implementation.echo(value)
+       ])
+    }
+
+    @objc func lock(_ call: CAPPluginCall) {
+        NotificationCenter.default.post(name: Notification.Name("OrientationPluginLockEvent"), object: nil, userInfo: ["message": "message"])
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+        UIViewController.attemptRotationToDeviceOrientation()
         call.resolve([
-            "value": implementation.echo(value)
+            "value": implementation.lock()
+        ])
+    }
+
+    @objc func unlock(_ call: CAPPluginCall) {
+        NotificationCenter.default.post(name: Notification.Name("OrientationPluginUnlockEvent"), object: nil, userInfo: ["message": "message"])
+        call.resolve([
+            "value": implementation.unlock()
         ])
     }
 }

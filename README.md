@@ -5,7 +5,7 @@ Control screen orientation for ios
 ## Install
 
 ```bash
-npm install mmsmart-screen-orientation-lock
+npm install https://git.mmsmart.ru/app-team/mmsmart-screen-orientation-lock.git#main
 npx cap sync
 ```
 

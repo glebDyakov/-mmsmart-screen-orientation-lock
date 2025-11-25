@@ -1,4 +1,4 @@
-import { Orientation } from 'mmsmart-screen-orientation-lock';
+import { Orientation } from '@mmsmart/screen-orientation-lock';
 
 window.testEcho = () => {
     const inputValue = document.getElementById("echoInput").value;

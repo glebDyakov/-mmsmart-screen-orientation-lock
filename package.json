@@ -1,5 +1,5 @@
 {
-  "name": "mmsmart-screen-orientation-lock",
+  "name": "@mmsmart/screen-orientation-lock",
   "version": "0.0.1",
   "description": "Control screen orientation for ios",
   "main": "dist/plugin.cjs.js",

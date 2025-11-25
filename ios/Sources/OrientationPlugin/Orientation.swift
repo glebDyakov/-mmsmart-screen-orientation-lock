@@ -5,4 +5,12 @@ import Foundation
         print(value)
         return value
     }
+
+    @objc public func lock() -> String  {
+        return ""
+    }
+    
+    @objc public func unlock() -> String  {
+        return ""
+    }
 }

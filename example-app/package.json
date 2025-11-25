@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@capacitor/core": "latest",
-    "mmsmart-screen-orientation-lock": "file:..",
+    "@mmsmart/screen-orientation-lock": "file:..",
     "@capacitor/ios": "7.0.0",
     "@capacitor/android": "7.0.0"
   },

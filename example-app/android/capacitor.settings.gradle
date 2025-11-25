@@ -2,5 +2,5 @@
 include ':capacitor-android'
 project(':capacitor-android').projectDir = new File('../node_modules/@capacitor/android/capacitor')
 
-include ':@mmsmart/screen-orientation-lock'
-project(':@mmsmart/screen-orientation-lock').projectDir = new File('../../android')
+include ':mmsmart-screen-orientation-lock'
+project(':mmsmart-screen-orientation-lock').projectDir = new File('../../android')
